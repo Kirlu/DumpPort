@@ -1,0 +1,8 @@
+D:\job\alonso\DumpPort\NotifyIconTest\bin\Release\NotifyIconTest.exe
+D:\job\alonso\DumpPort\NotifyIconTest\bin\Release\NotifyIconTest.pdb
+D:\job\alonso\DumpPort\NotifyIconTest\obj\Release\NotifyIconTest.csprojResolveAssemblyReference.cache
+D:\job\alonso\DumpPort\NotifyIconTest\obj\Release\NotifyIconTest.Form1.resources
+D:\job\alonso\DumpPort\NotifyIconTest\obj\Release\NotifyIconTest.Properties.Resources.resources
+D:\job\alonso\DumpPort\NotifyIconTest\obj\Release\NotifyIconTest.csproj.GenerateResource.Cache
+D:\job\alonso\DumpPort\NotifyIconTest\obj\Release\NotifyIconTest.exe
+D:\job\alonso\DumpPort\NotifyIconTest\obj\Release\NotifyIconTest.pdb

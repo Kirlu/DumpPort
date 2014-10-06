@@ -13,3 +13,10 @@ D:\job\alonso\DumpPort\Brightness\obj\Release\Brightness.csprojResolveAssemblyRe
 D:\job\alonso\DumpPort\Brightness\obj\Release\Brightness.Form1.resources
 D:\job\alonso\DumpPort\Brightness\obj\Release\Brightness.Properties.Resources.resources
 D:\job\alonso\DumpPort\Brightness\obj\Release\Brightness.csproj.GenerateResource.Cache
+C:\Users\waertf\Documents\Job\DumpPort\Brightness\obj\Release\Brightness.Form1.resources
+C:\Users\waertf\Documents\Job\DumpPort\Brightness\obj\Release\Brightness.Properties.Resources.resources
+C:\Users\waertf\Documents\Job\DumpPort\Brightness\obj\Release\Brightness.csproj.GenerateResource.Cache
+C:\Users\waertf\Documents\Job\DumpPort\Brightness\obj\Release\Brightness.exe
+C:\Users\waertf\Documents\Job\DumpPort\Brightness\bin\Release\Brightness.exe
+C:\Users\waertf\Documents\Job\DumpPort\Brightness\bin\Release\Brightness.pdb
+C:\Users\waertf\Documents\Job\DumpPort\Brightness\obj\Release\Brightness.pdb

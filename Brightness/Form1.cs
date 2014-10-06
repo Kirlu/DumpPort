@@ -7,24 +7,40 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
+using System.Management;
 namespace Brightness
 {
     public partial class Form1 : Form
     {
         private Monitor _currentMonitor;
         private readonly MonitorCollection _monitorCollection = new MonitorCollection();
+        byte[] bLevels;
         public Form1()
         {
             InitializeComponent();
             trackBar1.ValueChanged += trackBar1_ValueChanged;
             var @delegate = new NativeMethods.MonitorEnumDelegate(MonitorEnum);
             NativeMethods.EnumDisplayMonitors(IntPtr.Zero, IntPtr.Zero, @delegate, IntPtr.Zero);
+            bLevels = GetBrightnessLevels(); //get the level array for this system
+            if (bLevels.Count() == 0) //"WmiMonitorBrightness" is not supported by the system
+            {
+                Application.Exit();
+            }
+            else
+            {
+                trackBar1.TickFrequency = bLevels.Count(); //adjust the trackbar ticks according the number of possible brightness levels
+                trackBar1.Maximum = bLevels.Count() - 1;
+                trackBar1.Update();
+                trackBar1.Refresh();
+                check_brightness(); 
+            }
         }
 
         void trackBar1_ValueChanged(object sender, EventArgs e)
         {
             brightValue.Text = trackBar1.Value.ToString();
-            UpdateScreenWithBarValue((uint) trackBar1.Value);
+            //UpdateScreenWithBarValue((uint) trackBar1.Value);
+            SetBrightness((byte)trackBar1.Value);
         }
 
         private void UpdateScreenWithBarValue(uint value)
@@ -37,6 +53,101 @@ namespace Brightness
         {
             _monitorCollection.Add(hMonitor);
             return true;
+        }
+
+        static void SetBrightness(byte targetBrightness)
+        {
+            //define scope (namespace)
+            System.Management.ManagementScope s = new System.Management.ManagementScope("root\\WMI");
+
+            //define query
+            System.Management.SelectQuery q = new System.Management.SelectQuery("WmiMonitorBrightnessMethods");
+
+            //output current brightness
+            System.Management.ManagementObjectSearcher mos = new System.Management.ManagementObjectSearcher(s, q);
+
+            System.Management.ManagementObjectCollection moc = mos.Get();
+
+            foreach (System.Management.ManagementObject o in moc)
+            {
+                o.InvokeMethod("WmiSetBrightness", new Object[] { UInt32.MaxValue, targetBrightness }); //note the reversed order - won't work otherwise!
+                break; //only work on the first object
+            }
+
+            moc.Dispose();
+            mos.Dispose();
+        }
+        //array of valid brightness values in percent
+        static byte[] GetBrightnessLevels()
+        {
+            //define scope (namespace)
+            System.Management.ManagementScope s = new System.Management.ManagementScope("root\\WMI");
+
+            //define query
+            System.Management.SelectQuery q = new System.Management.SelectQuery("WmiMonitorBrightness");
+
+            //output current brightness
+            System.Management.ManagementObjectSearcher mos = new System.Management.ManagementObjectSearcher(s, q);
+            byte[] BrightnessLevels = new byte[0];
+
+            try
+            {
+                System.Management.ManagementObjectCollection moc = mos.Get();
+
+                //store result
+
+
+                foreach (System.Management.ManagementObject o in moc)
+                {
+                    BrightnessLevels = (byte[])o.GetPropertyValue("Level");
+                    break; //only work on the first object
+                }
+
+                moc.Dispose();
+                mos.Dispose();
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Sorry, Your System does not support this brightness control...");
+
+            }
+
+            return BrightnessLevels;
+        }
+        private void check_brightness()
+        {
+            int iBrightness = GetBrightness(); //get the actual value of brightness
+            int i = Array.IndexOf(bLevels, (byte)iBrightness);
+            if (i < 0) i = 1;
+            trackBar1.Value = i;
+        }
+        //get the actual percentage of brightness
+        static int GetBrightness()
+        {
+            //define scope (namespace)
+            System.Management.ManagementScope s = new System.Management.ManagementScope("root\\WMI");
+
+            //define query
+            System.Management.SelectQuery q = new System.Management.SelectQuery("WmiMonitorBrightness");
+
+            //output current brightness
+            System.Management.ManagementObjectSearcher mos = new System.Management.ManagementObjectSearcher(s, q);
+
+            System.Management.ManagementObjectCollection moc = mos.Get();
+
+            //store result
+            byte curBrightness = 0;
+            foreach (System.Management.ManagementObject o in moc)
+            {
+                curBrightness = (byte)o.GetPropertyValue("CurrentBrightness");
+                break; //only work on the first object
+            }
+
+            moc.Dispose();
+            mos.Dispose();
+
+            return (int)curBrightness;
         }
     }
 }

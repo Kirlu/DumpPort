@@ -17,6 +17,7 @@ namespace HotKeyTest
         public Form1()
         {
             InitializeComponent();
+            this.FormClosing+=Form1_FormClosing;
             ghk = new Hotkeys.GlobalHotkey(Constants.ALT + Constants.SHIFT, Keys.O, this);
             abk = new GlobalHotkey(Constants.ALT, Keys.A, this);
         }

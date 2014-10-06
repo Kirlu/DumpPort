@@ -1,0 +1,15 @@
+C:\Users\wavegisAAA\Downloads\Compressed\WinIo\WinIo\Samples\DumpPort\Brightness\bin\Release\Brightness.exe
+C:\Users\wavegisAAA\Downloads\Compressed\WinIo\WinIo\Samples\DumpPort\Brightness\bin\Release\Brightness.pdb
+C:\Users\wavegisAAA\Downloads\Compressed\WinIo\WinIo\Samples\DumpPort\Brightness\obj\Release\Brightness.Form1.resources
+C:\Users\wavegisAAA\Downloads\Compressed\WinIo\WinIo\Samples\DumpPort\Brightness\obj\Release\Brightness.Properties.Resources.resources
+C:\Users\wavegisAAA\Downloads\Compressed\WinIo\WinIo\Samples\DumpPort\Brightness\obj\Release\Brightness.csproj.GenerateResource.Cache
+C:\Users\wavegisAAA\Downloads\Compressed\WinIo\WinIo\Samples\DumpPort\Brightness\obj\Release\Brightness.exe
+C:\Users\wavegisAAA\Downloads\Compressed\WinIo\WinIo\Samples\DumpPort\Brightness\obj\Release\Brightness.pdb
+D:\job\alonso\DumpPort\Brightness\obj\Release\Brightness.exe
+D:\job\alonso\DumpPort\Brightness\obj\Release\Brightness.pdb
+D:\job\alonso\DumpPort\Brightness\bin\Release\Brightness.exe
+D:\job\alonso\DumpPort\Brightness\bin\Release\Brightness.pdb
+D:\job\alonso\DumpPort\Brightness\obj\Release\Brightness.csprojResolveAssemblyReference.cache
+D:\job\alonso\DumpPort\Brightness\obj\Release\Brightness.Form1.resources
+D:\job\alonso\DumpPort\Brightness\obj\Release\Brightness.Properties.Resources.resources
+D:\job\alonso\DumpPort\Brightness\obj\Release\Brightness.csproj.GenerateResource.Cache

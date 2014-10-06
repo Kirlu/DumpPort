@@ -1,0 +1,10 @@
+D:\job\alonso\DumpPort\HotKeyTest\bin\Release\HotKeyTest.exe
+D:\job\alonso\DumpPort\HotKeyTest\bin\Release\HotKeyTest.pdb
+D:\job\alonso\DumpPort\HotKeyTest\bin\Release\HotkeyLib.dll
+D:\job\alonso\DumpPort\HotKeyTest\bin\Release\HotkeyLib.pdb
+D:\job\alonso\DumpPort\HotKeyTest\obj\Release\HotKeyTest.csprojResolveAssemblyReference.cache
+D:\job\alonso\DumpPort\HotKeyTest\obj\Release\HotKeyTest.Properties.Resources.resources
+D:\job\alonso\DumpPort\HotKeyTest\obj\Release\HotKeyTest.csproj.GenerateResource.Cache
+D:\job\alonso\DumpPort\HotKeyTest\obj\Release\HotKeyTest.exe
+D:\job\alonso\DumpPort\HotKeyTest\obj\Release\HotKeyTest.pdb
+D:\job\alonso\DumpPort\HotKeyTest\obj\Release\HotKeyTest.Form1.resources

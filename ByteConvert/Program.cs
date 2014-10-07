@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -16,7 +17,14 @@ namespace ByteConvert
             byte[] bytes = BitConverter.GetBytes(a);
             Console.WriteLine(BitConverter.ToString(bytes));
             Array.Reverse(bytes);
-            Console.WriteLine(BitConverter.ToString(bytes));
+            string result2 = BitConverter.ToString(bytes).Replace("-","");
+            Console.WriteLine(result2);
+            BitArray ba = ConvertHexToBitArray(result2);
+            foreach (var cccd in ba)
+            {
+                Console.Write(cccd);
+            }
+            Console.WriteLine();
             UInt32 result = BitConverter.ToUInt32(bytes,0);
             Console.WriteLine(result);
             Console.WriteLine(BitConverter.ToString(BitConverter.GetBytes(result)));
@@ -75,6 +83,22 @@ namespace ByteConvert
                 }
             });
             Console.ReadLine();
+        }
+        public static BitArray ConvertHexToBitArray(string hexData)
+        {
+            if (hexData == null)
+                return null; // or do something else, throw, ...
+
+            BitArray ba = new BitArray(4 * hexData.Length);
+            for (int i = 0; i < hexData.Length; i++)
+            {
+                byte b = byte.Parse(hexData[i].ToString(), NumberStyles.HexNumber);
+                for (int j = 0; j < 4; j++)
+                {
+                    ba.Set(i * 4 + j, (b & (1 << (3 - j))) != 0);
+                }
+            }
+            return ba;
         }
         
     }

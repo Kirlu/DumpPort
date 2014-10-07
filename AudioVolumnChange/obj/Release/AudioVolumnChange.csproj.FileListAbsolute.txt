@@ -1,0 +1,11 @@
+D:\job\alonso\DumpPort\AudioVolumnChange\bin\Release\AudioVolumnChange.exe
+D:\job\alonso\DumpPort\AudioVolumnChange\bin\Release\AudioVolumnChange.pdb
+D:\job\alonso\DumpPort\AudioVolumnChange\bin\Release\CoreAudioApi.dll
+D:\job\alonso\DumpPort\AudioVolumnChange\bin\Release\NAudio.dll
+D:\job\alonso\DumpPort\AudioVolumnChange\bin\Release\NAudio.WindowsMediaFormat.dll
+D:\job\alonso\DumpPort\AudioVolumnChange\bin\Release\NAudio.xml
+D:\job\alonso\DumpPort\AudioVolumnChange\obj\Release\AudioVolumnChange.Properties.Resources.resources
+D:\job\alonso\DumpPort\AudioVolumnChange\obj\Release\AudioVolumnChange.csproj.GenerateResource.Cache
+D:\job\alonso\DumpPort\AudioVolumnChange\obj\Release\AudioVolumnChange.exe
+D:\job\alonso\DumpPort\AudioVolumnChange\obj\Release\AudioVolumnChange.pdb
+D:\job\alonso\DumpPort\AudioVolumnChange\obj\Release\AudioVolumnChange.Form1.resources

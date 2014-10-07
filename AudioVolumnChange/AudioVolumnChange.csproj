@@ -32,9 +32,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CoreAudioApi">
-      <HintPath>C:\Users\wavegisAAA\Downloads\CoreAudioApi.dll</HintPath>
-    </Reference>
     <Reference Include="NAudio">
       <HintPath>C:\Users\wavegisAAA\Downloads\Compressed\NAudio-Release\NAudio.dll</HintPath>
     </Reference>

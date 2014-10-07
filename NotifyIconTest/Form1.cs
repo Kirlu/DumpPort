@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using NAudio;
 
 namespace NotifyIconTest
 {
@@ -98,6 +99,7 @@ namespace NotifyIconTest
                     if (result[28].Equals(false))
                     {
                         MessageBox.Show("Volumn up");
+                        VolumnUp();
                     }
                     Thread.Sleep(1);
                 }
@@ -111,6 +113,7 @@ namespace NotifyIconTest
                     if (result[27].Equals(false))
                     {
                         MessageBox.Show("Volumn down");
+                        VolumnDown();
                     }
                     Thread.Sleep(1);
                 }
@@ -141,6 +144,88 @@ namespace NotifyIconTest
                     Thread.Sleep(1);
                 }
             });
+        }
+
+        private void VolumnDown()
+        {
+            try
+            {
+                //Instantiate an Enumerator to find audio devices
+                NAudio.CoreAudioApi.MMDeviceEnumerator MMDE = new NAudio.CoreAudioApi.MMDeviceEnumerator();
+                //Get all the devices, no matter what condition or status
+                NAudio.CoreAudioApi.MMDeviceCollection DevCol = MMDE.EnumerateAudioEndPoints(NAudio.CoreAudioApi.DataFlow.All, NAudio.CoreAudioApi.DeviceState.All);
+                //Loop through all devices
+                foreach (NAudio.CoreAudioApi.MMDevice dev in DevCol)
+                {
+                    try
+                    {
+                        dev.AudioEndpointVolume.VolumeStepDown();
+                        Trace.WriteLine(dev.AudioEndpointVolume.MasterVolumeLevel);
+                        //trackBar1.Value = (int)dev.AudioEndpointVolume.MasterVolumeLevel;
+                        //Trace.WriteLine(trackBar1.Value);
+                        //Set at maximum volume
+                        //dev.AudioEndpointVolume.MasterVolumeLevel = 0;
+
+                        //Get its audio volume
+                        System.Diagnostics.Debug.Print("Volume of " + dev.FriendlyName + " is " + dev.AudioEndpointVolume.MasterVolumeLevel.ToString());
+
+                        //Mute it
+                        //dev.AudioEndpointVolume.Mute = true;
+                        System.Diagnostics.Debug.Print(dev.FriendlyName + " is muted");
+                    }
+                    catch (Exception ex)
+                    {
+                        //Do something with exception when an audio endpoint could not be muted
+                        System.Diagnostics.Debug.Print(dev.FriendlyName + " could not be muted");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                //When something happend that prevent us to iterate through the devices
+                System.Diagnostics.Debug.Print("Could not enumerate devices due to an excepion: " + ex.Message);
+            }
+        }
+
+        private void VolumnUp()
+        {
+            try
+            {
+                //Instantiate an Enumerator to find audio devices
+                NAudio.CoreAudioApi.MMDeviceEnumerator MMDE = new NAudio.CoreAudioApi.MMDeviceEnumerator();
+                //Get all the devices, no matter what condition or status
+                NAudio.CoreAudioApi.MMDeviceCollection DevCol = MMDE.EnumerateAudioEndPoints(NAudio.CoreAudioApi.DataFlow.All, NAudio.CoreAudioApi.DeviceState.All);
+                //Loop through all devices
+                foreach (NAudio.CoreAudioApi.MMDevice dev in DevCol)
+                {
+                    try
+                    {
+                        dev.AudioEndpointVolume.VolumeStepUp();
+                        Trace.WriteLine(dev.AudioEndpointVolume.MasterVolumeLevel);
+                        //trackBar1.Value = (int)dev.AudioEndpointVolume.MasterVolumeLevel;
+                        //Trace.WriteLine(trackBar1.Value);
+                        //Set at maximum volume
+                        //dev.AudioEndpointVolume.MasterVolumeLevel = 0;
+
+                        //Get its audio volume
+                        System.Diagnostics.Debug.Print("Volume of " + dev.FriendlyName + " is " + dev.AudioEndpointVolume.MasterVolumeLevel.ToString());
+
+                        //Mute it
+                        //dev.AudioEndpointVolume.Mute = true;
+                        System.Diagnostics.Debug.Print(dev.FriendlyName + " is muted");
+                    }
+                    catch (Exception ex)
+                    {
+                        //Do something with exception when an audio endpoint could not be muted
+                        System.Diagnostics.Debug.Print(dev.FriendlyName + " could not be muted");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                //When something happend that prevent us to iterate through the devices
+                System.Diagnostics.Debug.Print("Could not enumerate devices due to an excepion: " + ex.Message);
+            }
         }
 
 

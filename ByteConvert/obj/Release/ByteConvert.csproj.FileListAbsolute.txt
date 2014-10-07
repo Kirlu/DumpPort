@@ -2,3 +2,4 @@ D:\job\alonso\DumpPort\ByteConvert\bin\Release\ByteConvert.exe
 D:\job\alonso\DumpPort\ByteConvert\bin\Release\ByteConvert.pdb
 D:\job\alonso\DumpPort\ByteConvert\obj\Release\ByteConvert.exe
 D:\job\alonso\DumpPort\ByteConvert\obj\Release\ByteConvert.pdb
+D:\job\alonso\DumpPort\ByteConvert\obj\Release\ByteConvert.csprojResolveAssemblyReference.cache

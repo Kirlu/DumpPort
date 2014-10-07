@@ -48,6 +48,7 @@
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.Load += Form1_Load;
+            
         }
 
         #endregion

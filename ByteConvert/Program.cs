@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace ByteConvert
 {
@@ -32,13 +34,14 @@ namespace ByteConvert
             Console.WriteLine(cc.ToString("X"));
             string bb = Convert.ToString(cc, 2).PadLeft(8, '0');
             Console.WriteLine(bb);
-            var ccc = bb.Select(s => s.Equals('1')).ToArray(); ;
+            bool[] ccc = bb.Select(s => s.Equals('1')).ToArray(); ;
             for (int i = 0; i < ccc.Length; i++)
             {
                 Console.Write(ccc[i] + " ");
             }
             Console.ReadLine();
             //take address:0x58B array[3-6]->bit27-bit30
+
         }
         
     }

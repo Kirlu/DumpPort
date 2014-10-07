@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace NotifyIconTest
@@ -52,6 +55,7 @@ namespace NotifyIconTest
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            /*
             // Check if this is a 32 bit or 64 bit system
             if (IntPtr.Size == 4)
             {
@@ -83,9 +87,63 @@ namespace NotifyIconTest
                     this.Close();
                 }
             }
-
+            */
             //btnGetValue_Click(this, null);
+            Task.Factory.StartNew(() =>
+            {
+                while (true)
+                {
+                    //bit27
+                    bool[] result = getBinValue(getValue(keyAdress));
+                    if (result[3].Equals(true))
+                    {
+                        MessageBox.Show("Volumn up");
+                    }
+                    Thread.SpinWait(1);
+                }
+            });
+            Task.Factory.StartNew(() =>
+            {
+                while (true)
+                {
+                    //bit28
+                    bool[] result = getBinValue(getValue(keyAdress));
+                    if (result[4].Equals(true))
+                    {
+                        MessageBox.Show("Volumn down");
+                    }
+                    Thread.SpinWait(1);
+                }
+            });
+            Task.Factory.StartNew(() =>
+            {
+                while (true)
+                {
+                    //bit29
+                    bool[] result = getBinValue(getValue(keyAdress));
+                    if (result[5].Equals(true))
+                    {
+                        MessageBox.Show("Brightness up");
+                    }
+                    Thread.SpinWait(1);
+                }
+            });
+            Task.Factory.StartNew(() =>
+            {
+                while (true)
+                {
+                    //bit30
+                    bool[] result = getBinValue(getValue(keyAdress));
+                    if (result[6].Equals(true))
+                    {
+                        MessageBox.Show("Brightness down");
+                    }
+                    Thread.SpinWait(1);
+                }
+            });
         }
+
+
 
         void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -93,6 +151,15 @@ namespace NotifyIconTest
             this.Hide();
         }
 
+        bool[] getBinValue(string UintValue)
+        {
+            byte cc = byte.Parse(UintValue);
+            //Console.WriteLine(cc.ToString("X"));
+            string bb = Convert.ToString(cc, 2).PadLeft(8, '0');
+            //Console.WriteLine(bb);
+            bool[] ccc = bb.Select(s => s.Equals('1')).ToArray();
+            return ccc;
+        }
         string getValue(string ioAddress)
         {
             IntPtr pFunc = GetProcAddress(hMod, "GetPortVal");

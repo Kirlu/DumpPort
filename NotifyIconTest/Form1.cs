@@ -95,7 +95,7 @@ namespace NotifyIconTest
                 {
                     //bit27
                     bool[] result = getBinValue(getValue(keyAdress));
-                    if (result[27].Equals(false))
+                    if (result[28].Equals(false))
                     {
                         MessageBox.Show("Volumn up");
                     }
@@ -108,7 +108,7 @@ namespace NotifyIconTest
                 {
                     //bit28
                     bool[] result = getBinValue(getValue(keyAdress));
-                    if (result[28].Equals(false))
+                    if (result[27].Equals(false))
                     {
                         MessageBox.Show("Volumn down");
                     }
@@ -121,7 +121,7 @@ namespace NotifyIconTest
                 {
                     //bit29
                     bool[] result = getBinValue(getValue(keyAdress));
-                    if (result[29].Equals(false))
+                    if (result[26].Equals(false))
                     {
                         MessageBox.Show("Brightness up");
                     }
@@ -134,7 +134,7 @@ namespace NotifyIconTest
                 {
                     //bit30
                     bool[] result = getBinValue(getValue(keyAdress));
-                    if (result[30].Equals(false))
+                    if (result[25].Equals(false))
                     {
                         MessageBox.Show("Brightness down");
                     }

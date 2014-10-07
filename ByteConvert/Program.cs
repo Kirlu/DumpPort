@@ -12,7 +12,7 @@ namespace ByteConvert
     {
         static void Main(string[] args)
         {
-            UInt32 a = 78;
+            UInt32 a = 1879048193;
             byte[] bytes = BitConverter.GetBytes(a);
             Console.WriteLine(BitConverter.ToString(bytes));
             Array.Reverse(bytes);

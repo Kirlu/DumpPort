@@ -29,6 +29,7 @@ namespace ByteConvert
             Console.WriteLine("====");
             Console.ReadLine();
             byte cc = 78;
+            Console.WriteLine(cc.ToString("X"));
             string bb = Convert.ToString(cc, 2).PadLeft(8, '0');
             Console.WriteLine(bb);
             var ccc = bb.Select(s => s.Equals('1')).ToArray(); ;
@@ -37,6 +38,7 @@ namespace ByteConvert
                 Console.Write(ccc[i] + " ");
             }
             Console.ReadLine();
+            //take address:0x58B array[3-6]->bit27-bit30
         }
         
     }

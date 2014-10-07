@@ -99,7 +99,7 @@ namespace NotifyIconTest
                     {
                         MessageBox.Show("Volumn up");
                     }
-                    Thread.SpinWait(100);
+                    Thread.Sleep(1);
                 }
             });
             Task.Factory.StartNew(() =>
@@ -112,7 +112,7 @@ namespace NotifyIconTest
                     {
                         MessageBox.Show("Volumn down");
                     }
-                    Thread.SpinWait(100);
+                    Thread.Sleep(1);
                 }
             });
             Task.Factory.StartNew(() =>
@@ -125,7 +125,7 @@ namespace NotifyIconTest
                     {
                         MessageBox.Show("Brightness up");
                     }
-                    Thread.SpinWait(100);
+                    Thread.Sleep(1);
                 }
             });
             Task.Factory.StartNew(() =>
@@ -138,7 +138,7 @@ namespace NotifyIconTest
                     {
                         MessageBox.Show("Brightness down");
                     }
-                    Thread.SpinWait(100);
+                    Thread.Sleep(1);
                 }
             });
         }

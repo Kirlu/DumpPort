@@ -10,3 +10,12 @@ D:\job\alonso\DumpPort\AudioVolumnChange\obj\Release\AudioVolumnChange.exe
 D:\job\alonso\DumpPort\AudioVolumnChange\obj\Release\AudioVolumnChange.pdb
 D:\job\alonso\DumpPort\AudioVolumnChange\obj\Release\AudioVolumnChange.Form1.resources
 D:\job\alonso\DumpPort\AudioVolumnChange\obj\Release\AudioVolumnChange.csprojResolveAssemblyReference.cache
+C:\Users\waertf\Documents\Job\DumpPort\AudioVolumnChange\bin\Release\AudioVolumnChange.exe
+C:\Users\waertf\Documents\Job\DumpPort\AudioVolumnChange\bin\Release\AudioVolumnChange.pdb
+C:\Users\waertf\Documents\Job\DumpPort\AudioVolumnChange\bin\Release\NAudio.xml
+C:\Users\waertf\Documents\Job\DumpPort\AudioVolumnChange\obj\Release\AudioVolumnChange.csprojResolveAssemblyReference.cache
+C:\Users\waertf\Documents\Job\DumpPort\AudioVolumnChange\obj\Release\AudioVolumnChange.Form1.resources
+C:\Users\waertf\Documents\Job\DumpPort\AudioVolumnChange\obj\Release\AudioVolumnChange.Properties.Resources.resources
+C:\Users\waertf\Documents\Job\DumpPort\AudioVolumnChange\obj\Release\AudioVolumnChange.csproj.GenerateResource.Cache
+C:\Users\waertf\Documents\Job\DumpPort\AudioVolumnChange\obj\Release\AudioVolumnChange.exe
+C:\Users\waertf\Documents\Job\DumpPort\AudioVolumnChange\obj\Release\AudioVolumnChange.pdb

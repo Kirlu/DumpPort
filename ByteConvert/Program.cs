@@ -42,6 +42,39 @@ namespace ByteConvert
             Console.ReadLine();
             //take address:0x58B array[3-6]->bit27-bit30
 
+            Task.Factory.StartNew(() =>
+            {
+                while (true)
+                {
+                    Console.WriteLine("1");
+                    Thread.Sleep(1);
+                }
+            });
+            Task.Factory.StartNew(() =>
+            {
+                while (true)
+                {
+                    Console.WriteLine("2");
+                    Thread.Sleep(1);
+                }
+            });
+            Task.Factory.StartNew(() =>
+            {
+                while (true)
+                {
+                    Console.WriteLine("3");
+                    Thread.Sleep(1);
+                }
+            });
+            Task.Factory.StartNew(() =>
+            {
+                while (true)
+                {
+                    Console.WriteLine("4");
+                    Thread.Sleep(1);
+                }
+            });
+            Console.ReadLine();
         }
         
     }

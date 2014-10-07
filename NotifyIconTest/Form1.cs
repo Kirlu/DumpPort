@@ -37,7 +37,7 @@ namespace NotifyIconTest
         private delegate bool ShutdownWinIoType();
 
         IntPtr hMod;
-        private const string keyAdress = "58B";
+        private const string keyAdress = "588";
         public Form1()
         {
             InitializeComponent();
@@ -55,7 +55,7 @@ namespace NotifyIconTest
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            /*
+            
             // Check if this is a 32 bit or 64 bit system
             if (IntPtr.Size == 4)
             {
@@ -87,7 +87,7 @@ namespace NotifyIconTest
                     this.Close();
                 }
             }
-            */
+            
             //btnGetValue_Click(this, null);
             Task.Factory.StartNew(() =>
             {
@@ -95,11 +95,11 @@ namespace NotifyIconTest
                 {
                     //bit27
                     bool[] result = getBinValue(getValue(keyAdress));
-                    if (result[3].Equals(true))
+                    if (result[27].Equals(false))
                     {
                         MessageBox.Show("Volumn up");
                     }
-                    Thread.SpinWait(1);
+                    Thread.SpinWait(100);
                 }
             });
             Task.Factory.StartNew(() =>
@@ -108,11 +108,11 @@ namespace NotifyIconTest
                 {
                     //bit28
                     bool[] result = getBinValue(getValue(keyAdress));
-                    if (result[4].Equals(true))
+                    if (result[28].Equals(false))
                     {
                         MessageBox.Show("Volumn down");
                     }
-                    Thread.SpinWait(1);
+                    Thread.SpinWait(100);
                 }
             });
             Task.Factory.StartNew(() =>
@@ -121,11 +121,11 @@ namespace NotifyIconTest
                 {
                     //bit29
                     bool[] result = getBinValue(getValue(keyAdress));
-                    if (result[5].Equals(true))
+                    if (result[29].Equals(false))
                     {
                         MessageBox.Show("Brightness up");
                     }
-                    Thread.SpinWait(1);
+                    Thread.SpinWait(100);
                 }
             });
             Task.Factory.StartNew(() =>
@@ -134,11 +134,11 @@ namespace NotifyIconTest
                 {
                     //bit30
                     bool[] result = getBinValue(getValue(keyAdress));
-                    if (result[6].Equals(true))
+                    if (result[30].Equals(false))
                     {
                         MessageBox.Show("Brightness down");
                     }
-                    Thread.SpinWait(1);
+                    Thread.SpinWait(100);
                 }
             });
         }
@@ -153,12 +153,26 @@ namespace NotifyIconTest
 
         bool[] getBinValue(string UintValue)
         {
+            /*
             byte cc = byte.Parse(UintValue);
             //Console.WriteLine(cc.ToString("X"));
             string bb = Convert.ToString(cc, 2).PadLeft(8, '0');
             //Console.WriteLine(bb);
             bool[] ccc = bb.Select(s => s.Equals('1')).ToArray();
             return ccc;
+            */
+            //UInt32 a = 78;
+            byte[] bytes = BitConverter.GetBytes(UInt32.Parse(UintValue));
+            Console.WriteLine(BitConverter.ToString(bytes));
+            Array.Reverse(bytes);
+            Console.WriteLine(BitConverter.ToString(bytes));
+            UInt32 result = BitConverter.ToUInt32(bytes, 0);
+            Console.WriteLine(result);
+            Console.WriteLine(BitConverter.ToString(BitConverter.GetBytes(result)));
+            Console.WriteLine(result.ToString("X8"));
+            string b = Convert.ToString(result, 2).PadLeft(32, '0');
+            bool[] c = b.Select(s => s.Equals('1')).ToArray();
+            return c;
         }
         string getValue(string ioAddress)
         {
@@ -174,8 +188,8 @@ namespace NotifyIconTest
                 GetPortValType GetPortVal = (GetPortValType)Marshal.GetDelegateForFunctionPointer(pFunc, typeof(GetPortValType));
 
                 // Call WinIo to get value
-                bool Result = GetPortVal(PortAddr, &PortVal, 1);
-                //bool Result = GetPortVal(PortAddr, &PortVal, 4);
+                //bool Result = GetPortVal(PortAddr, &PortVal, 1);
+                bool Result = GetPortVal(PortAddr, &PortVal, 4);
                 if (Result)
                 {
                     //txtValue.Text = PortVal.ToString("X");

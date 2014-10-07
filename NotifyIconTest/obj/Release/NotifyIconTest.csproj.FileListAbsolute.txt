@@ -6,3 +6,11 @@ D:\job\alonso\DumpPort\NotifyIconTest\obj\Release\NotifyIconTest.Properties.Reso
 D:\job\alonso\DumpPort\NotifyIconTest\obj\Release\NotifyIconTest.csproj.GenerateResource.Cache
 D:\job\alonso\DumpPort\NotifyIconTest\obj\Release\NotifyIconTest.exe
 D:\job\alonso\DumpPort\NotifyIconTest\obj\Release\NotifyIconTest.pdb
+C:\Users\waertf\Documents\Job\DumpPort\NotifyIconTest\bin\Release\NotifyIconTest.exe
+C:\Users\waertf\Documents\Job\DumpPort\NotifyIconTest\bin\Release\NotifyIconTest.pdb
+C:\Users\waertf\Documents\Job\DumpPort\NotifyIconTest\obj\Release\NotifyIconTest.csprojResolveAssemblyReference.cache
+C:\Users\waertf\Documents\Job\DumpPort\NotifyIconTest\obj\Release\NotifyIconTest.Form1.resources
+C:\Users\waertf\Documents\Job\DumpPort\NotifyIconTest\obj\Release\NotifyIconTest.Properties.Resources.resources
+C:\Users\waertf\Documents\Job\DumpPort\NotifyIconTest\obj\Release\NotifyIconTest.csproj.GenerateResource.Cache
+C:\Users\waertf\Documents\Job\DumpPort\NotifyIconTest\obj\Release\NotifyIconTest.exe
+C:\Users\waertf\Documents\Job\DumpPort\NotifyIconTest\obj\Release\NotifyIconTest.pdb

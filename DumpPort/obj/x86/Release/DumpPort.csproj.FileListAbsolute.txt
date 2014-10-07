@@ -6,3 +6,12 @@ D:\job\alonso\DumpPort\DumpPort\obj\x86\Release\DumpPort.csproj.GenerateResource
 D:\job\alonso\DumpPort\DumpPort\obj\x86\Release\DumpPort.exe
 D:\job\alonso\DumpPort\DumpPort\obj\x86\Release\DumpPort.pdb
 D:\job\alonso\DumpPort\DumpPort\obj\x86\Release\DumpPort.csprojResolveAssemblyReference.cache
+C:\Users\waertf\Documents\Job\DumpPort\DumpPort\bin\x86\Release\DumpPort.exe
+C:\Users\waertf\Documents\Job\DumpPort\DumpPort\bin\x86\Release\DumpPort.pdb
+C:\Users\waertf\Documents\Job\DumpPort\DumpPort\obj\x86\Release\DumpPort.csprojResolveAssemblyReference.cache
+C:\Users\waertf\Documents\Job\DumpPort\DumpPort\obj\x86\Release\DumpPort.Form1.resources
+C:\Users\waertf\Documents\Job\DumpPort\DumpPort\obj\x86\Release\DumpPort.Properties.Resources.resources
+C:\Users\waertf\Documents\Job\DumpPort\DumpPort\obj\x86\Release\DumpPort.csproj.GenerateResource.Cache
+C:\Users\waertf\Documents\Job\DumpPort\DumpPort\obj\x86\Release\DumpPort.exe
+C:\Users\waertf\Documents\Job\DumpPort\DumpPort\obj\x86\Release\DumpPort.pdb
+C:\Users\waertf\Documents\Job\DumpPort\DumpPort\bin\x86\Release\DumpPort.exe.config

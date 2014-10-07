@@ -114,12 +114,12 @@ namespace DumpPort
                 GetPortValType GetPortVal = (GetPortValType)Marshal.GetDelegateForFunctionPointer(pFunc, typeof(GetPortValType));
 
                 // Call WinIo to get value
-                bool Result = GetPortVal(PortAddr, &PortVal, 1);
-                //bool Result = GetPortVal(PortAddr, &PortVal, 4);
+                //bool Result = GetPortVal(PortAddr, &PortVal, 1);
+                bool Result = GetPortVal(PortAddr, &PortVal, 4);
                 if (Result)
                 {
-                    txtValue.Text = PortVal.ToString("X");
-                    //txtValue.Text = PortVal.ToString("X8");
+                    //txtValue.Text = PortVal.ToString("X");
+                    txtValue.Text = PortVal.ToString("X8");
                 }
                 else
                 {

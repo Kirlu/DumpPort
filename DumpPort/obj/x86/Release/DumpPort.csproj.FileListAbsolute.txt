@@ -1,8 +1,8 @@
 D:\job\alonso\DumpPort\DumpPort\bin\x86\Release\DumpPort.exe
 D:\job\alonso\DumpPort\DumpPort\bin\x86\Release\DumpPort.pdb
-D:\job\alonso\DumpPort\DumpPort\obj\x86\Release\DumpPort.csprojResolveAssemblyReference.cache
 D:\job\alonso\DumpPort\DumpPort\obj\x86\Release\DumpPort.Form1.resources
 D:\job\alonso\DumpPort\DumpPort\obj\x86\Release\DumpPort.Properties.Resources.resources
 D:\job\alonso\DumpPort\DumpPort\obj\x86\Release\DumpPort.csproj.GenerateResource.Cache
 D:\job\alonso\DumpPort\DumpPort\obj\x86\Release\DumpPort.exe
 D:\job\alonso\DumpPort\DumpPort\obj\x86\Release\DumpPort.pdb
+D:\job\alonso\DumpPort\DumpPort\obj\x86\Release\DumpPort.csprojResolveAssemblyReference.cache

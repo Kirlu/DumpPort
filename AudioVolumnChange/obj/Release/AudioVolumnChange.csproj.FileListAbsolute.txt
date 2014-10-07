@@ -9,3 +9,4 @@ D:\job\alonso\DumpPort\AudioVolumnChange\obj\Release\AudioVolumnChange.csproj.Ge
 D:\job\alonso\DumpPort\AudioVolumnChange\obj\Release\AudioVolumnChange.exe
 D:\job\alonso\DumpPort\AudioVolumnChange\obj\Release\AudioVolumnChange.pdb
 D:\job\alonso\DumpPort\AudioVolumnChange\obj\Release\AudioVolumnChange.Form1.resources
+D:\job\alonso\DumpPort\AudioVolumnChange\obj\Release\AudioVolumnChange.csprojResolveAssemblyReference.cache

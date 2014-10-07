@@ -115,10 +115,11 @@ namespace DumpPort
 
                 // Call WinIo to get value
                 bool Result = GetPortVal(PortAddr, &PortVal, 1);
-
+                //bool Result = GetPortVal(PortAddr, &PortVal, 4);
                 if (Result)
                 {
                     txtValue.Text = PortVal.ToString("X");
+                    //txtValue.Text = PortVal.ToString("X8");
                 }
                 else
                 {

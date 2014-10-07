@@ -93,7 +93,7 @@ namespace DumpPort
             this.txtPortAddr.Location = new System.Drawing.Point(206, 137);
             this.txtPortAddr.MaxLength = 4;
             this.txtPortAddr.Name = "txtPortAddr";
-            this.txtPortAddr.Size = new System.Drawing.Size(36, 20);
+            this.txtPortAddr.Size = new System.Drawing.Size(81, 20);
             this.txtPortAddr.TabIndex = 5;
             this.txtPortAddr.Text = "0";
             // 
@@ -102,7 +102,7 @@ namespace DumpPort
             this.txtValue.Location = new System.Drawing.Point(113, 167);
             this.txtValue.MaxLength = 2;
             this.txtValue.Name = "txtValue";
-            this.txtValue.Size = new System.Drawing.Size(23, 20);
+            this.txtValue.Size = new System.Drawing.Size(87, 20);
             this.txtValue.TabIndex = 6;
             // 
             // label3

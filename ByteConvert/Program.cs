@@ -10,7 +10,7 @@ namespace ByteConvert
     {
         static void Main(string[] args)
         {
-            UInt32 a = 12345678;
+            UInt32 a = 78;
             byte[] bytes = BitConverter.GetBytes(a);
             Console.WriteLine(BitConverter.ToString(bytes));
             Array.Reverse(bytes);
@@ -26,7 +26,16 @@ namespace ByteConvert
             {
                 Console.Write(c[i]+" ");
             }
-            
+            Console.WriteLine("====");
+            Console.ReadLine();
+            byte cc = 78;
+            string bb = Convert.ToString(cc, 2).PadLeft(8, '0');
+            Console.WriteLine(bb);
+            var ccc = bb.Select(s => s.Equals('1')).ToArray(); ;
+            for (int i = 0; i < ccc.Length; i++)
+            {
+                Console.Write(ccc[i] + " ");
+            }
             Console.ReadLine();
         }
         

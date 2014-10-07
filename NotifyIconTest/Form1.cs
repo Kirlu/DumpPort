@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Management;
 using NAudio;
 
 namespace NotifyIconTest
@@ -39,6 +40,10 @@ namespace NotifyIconTest
 
         IntPtr hMod;
         private const string keyAdress = "588";
+        private Monitor _currentMonitor;
+        private readonly MonitorCollection _monitorCollection = new MonitorCollection();
+        byte[] bLevels;
+        int? iBrightness=null;
         public Form1()
         {
             InitializeComponent();
@@ -46,8 +51,132 @@ namespace NotifyIconTest
             notifyIcon1.MouseDoubleClick += notifyIcon1_MouseDoubleClick;
             this.WindowState = FormWindowState.Minimized;
             this.ShowInTaskbar = false;
+
+            var @delegate = new NativeMethods.MonitorEnumDelegate(MonitorEnum);
+            NativeMethods.EnumDisplayMonitors(IntPtr.Zero, IntPtr.Zero, @delegate, IntPtr.Zero);
+            bLevels = GetBrightnessLevels(); //get the level array for this system
+            if (bLevels.Count() == 0) //"WmiMonitorBrightness" is not supported by the system
+            {
+                Application.Exit();
+            }
+            else
+            {
+                /*
+                trackBar1.TickFrequency = bLevels.Count(); //adjust the trackbar ticks according the number of possible brightness levels
+                trackBar1.Maximum = bLevels.Count() - 1;
+                trackBar1.Update();
+                trackBar1.Refresh();
+                */
+                check_brightness();
+            }
         }
 
+        private void UpdateScreenWithBarValue(uint value)
+        {
+            _currentMonitor = _monitorCollection[0];
+            NativeMethods.SetMonitorBrightness(_currentMonitor.HPhysicalMonitor, value);
+        }
+        // To be called by a delegate
+        private bool MonitorEnum(IntPtr hMonitor, IntPtr hdcMonitor, ref Rectangle lprcMonitor, IntPtr dwData)
+        {
+            _monitorCollection.Add(hMonitor);
+            return true;
+        }
+
+        static void SetBrightness(byte targetBrightness)
+        {
+            //define scope (namespace)
+            System.Management.ManagementScope s = new System.Management.ManagementScope("root\\WMI");
+
+            //define query
+            System.Management.SelectQuery q = new System.Management.SelectQuery("WmiMonitorBrightnessMethods");
+
+            //output current brightness
+            System.Management.ManagementObjectSearcher mos = new System.Management.ManagementObjectSearcher(s, q);
+
+            System.Management.ManagementObjectCollection moc = mos.Get();
+
+            foreach (System.Management.ManagementObject o in moc)
+            {
+                o.InvokeMethod("WmiSetBrightness", new Object[] { UInt32.MaxValue, targetBrightness }); //note the reversed order - won't work otherwise!
+                break; //only work on the first object
+            }
+
+            moc.Dispose();
+            mos.Dispose();
+        }
+        //array of valid brightness values in percent
+        static byte[] GetBrightnessLevels()
+        {
+            //define scope (namespace)
+            System.Management.ManagementScope s = new System.Management.ManagementScope("root\\WMI");
+
+            //define query
+            System.Management.SelectQuery q = new System.Management.SelectQuery("WmiMonitorBrightness");
+
+            //output current brightness
+            System.Management.ManagementObjectSearcher mos = new System.Management.ManagementObjectSearcher(s, q);
+            byte[] BrightnessLevels = new byte[0];
+
+            try
+            {
+                System.Management.ManagementObjectCollection moc = mos.Get();
+
+                //store result
+
+
+                foreach (System.Management.ManagementObject o in moc)
+                {
+                    BrightnessLevels = (byte[])o.GetPropertyValue("Level");
+                    break; //only work on the first object
+                }
+
+                moc.Dispose();
+                mos.Dispose();
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Sorry, Your System does not support this brightness control...");
+
+            }
+
+            return BrightnessLevels;
+        }
+        private void check_brightness()
+        {
+            iBrightness = GetBrightness(); //get the actual value of brightness
+            int i = Array.IndexOf(bLevels, (byte)iBrightness);
+            if (i < 0) i = 1;
+            //trackBar1.Value = i;
+        }
+        //get the actual percentage of brightness
+        static int GetBrightness()
+        {
+            //define scope (namespace)
+            System.Management.ManagementScope s = new System.Management.ManagementScope("root\\WMI");
+
+            //define query
+            System.Management.SelectQuery q = new System.Management.SelectQuery("WmiMonitorBrightness");
+
+            //output current brightness
+            System.Management.ManagementObjectSearcher mos = new System.Management.ManagementObjectSearcher(s, q);
+
+            System.Management.ManagementObjectCollection moc = mos.Get();
+
+            //store result
+            byte curBrightness = 0;
+            foreach (System.Management.ManagementObject o in moc)
+            {
+                curBrightness = (byte)o.GetPropertyValue("CurrentBrightness");
+                break; //only work on the first object
+            }
+
+            moc.Dispose();
+            mos.Dispose();
+
+            return (int)curBrightness;
+        }
         void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             this.Show();
@@ -98,7 +227,7 @@ namespace NotifyIconTest
                     bool[] result = getBinValue(getValue(keyAdress));
                     if (result[28].Equals(false))
                     {
-                        MessageBox.Show("Volumn up");
+                        //MessageBox.Show("Volumn up");
                         VolumnUp();
                     }
                     Thread.Sleep(1);
@@ -112,7 +241,7 @@ namespace NotifyIconTest
                     bool[] result = getBinValue(getValue(keyAdress));
                     if (result[27].Equals(false))
                     {
-                        MessageBox.Show("Volumn down");
+                        //MessageBox.Show("Volumn down");
                         VolumnDown();
                     }
                     Thread.Sleep(1);
@@ -126,7 +255,12 @@ namespace NotifyIconTest
                     bool[] result = getBinValue(getValue(keyAdress));
                     if (result[26].Equals(false))
                     {
-                        MessageBox.Show("Brightness up");
+                        //MessageBox.Show("Brightness up");
+                        if (iBrightness < 100)
+                        {
+                            iBrightness += 1;
+                            SetBrightness((byte)iBrightness);
+                        }
                     }
                     Thread.Sleep(1);
                 }
@@ -139,7 +273,12 @@ namespace NotifyIconTest
                     bool[] result = getBinValue(getValue(keyAdress));
                     if (result[25].Equals(false))
                     {
-                        MessageBox.Show("Brightness down");
+                        //MessageBox.Show("Brightness down");
+                        if (iBrightness > 0)
+                        {
+                            iBrightness -= 1;
+                            SetBrightness((byte)iBrightness);
+                        }
                     }
                     Thread.Sleep(1);
                 }

@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotKeyTest", "HotKeyTest\Ho
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AudioVolumnChange", "AudioVolumnChange\AudioVolumnChange.csproj", "{D9FCEF27-4F21-42B3-A630-E105BC3023EE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByteConvert", "ByteConvert\ByteConvert.csproj", "{1CD8C68D-88A6-4534-AACD-F4C1DC572C44}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -73,6 +75,16 @@ Global
 		{D9FCEF27-4F21-42B3-A630-E105BC3023EE}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{D9FCEF27-4F21-42B3-A630-E105BC3023EE}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{D9FCEF27-4F21-42B3-A630-E105BC3023EE}.Release|x86.ActiveCfg = Release|Any CPU
+		{1CD8C68D-88A6-4534-AACD-F4C1DC572C44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CD8C68D-88A6-4534-AACD-F4C1DC572C44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CD8C68D-88A6-4534-AACD-F4C1DC572C44}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{1CD8C68D-88A6-4534-AACD-F4C1DC572C44}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{1CD8C68D-88A6-4534-AACD-F4C1DC572C44}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{1CD8C68D-88A6-4534-AACD-F4C1DC572C44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CD8C68D-88A6-4534-AACD-F4C1DC572C44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CD8C68D-88A6-4534-AACD-F4C1DC572C44}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{1CD8C68D-88A6-4534-AACD-F4C1DC572C44}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{1CD8C68D-88A6-4534-AACD-F4C1DC572C44}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

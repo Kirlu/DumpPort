@@ -184,7 +184,7 @@ namespace NotifyIconTest
             this.Show();
             this.WindowState = FormWindowState.Normal;
         }
-
+        /*
         private void Form1_Load(object sender, EventArgs e)
         {
             
@@ -286,6 +286,7 @@ namespace NotifyIconTest
                 }
             });
         }
+        */
         #region new io library
         [DllImport("inpout32.dll")]
         private static extern UInt32 IsInpOutDriverOpen();
@@ -334,7 +335,9 @@ namespace NotifyIconTest
 
 
         bool m_bX64 = false;
-        void test()//Form1_Load
+        Thread t27=null, t28=null, t29=null, t30=null;
+        //void test()//Form1_Load
+        private void Form1_Load(object sender, EventArgs e)
         {
             try
             {
@@ -380,7 +383,7 @@ namespace NotifyIconTest
                  * */
             }
             #region 27bit
-            ThreadPool.QueueUserWorkItem(callback =>
+            t27 = new System.Threading.Thread(delegate()
             {
                 while (true)
                 {
@@ -423,7 +426,7 @@ namespace NotifyIconTest
             });
 #endregion 27bit
             #region 28bit
-            ThreadPool.QueueUserWorkItem(callback =>
+            t28 = new System.Threading.Thread(delegate()
             {
                 while (true)
                 {
@@ -466,7 +469,7 @@ namespace NotifyIconTest
             });
             #endregion 28bit
             #region 29bit
-            ThreadPool.QueueUserWorkItem(callback =>
+            t29 = new System.Threading.Thread(delegate()
             {
                 while (true)
                 {
@@ -513,7 +516,7 @@ namespace NotifyIconTest
             });
             #endregion 29bit
             #region 30bit
-            ThreadPool.QueueUserWorkItem(callback =>
+            t30 = new System.Threading.Thread(delegate()
             {
                 while (true)
                 {
@@ -559,6 +562,10 @@ namespace NotifyIconTest
                 }
             });
             #endregion 30bit
+            t27.Start();
+            t28.Start();
+            t29.Start();
+            t30.Start();
         }
         static BitArray ConvertHexToBitArray(string hexData)
         {
@@ -663,8 +670,16 @@ namespace NotifyIconTest
 
         void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            e.Cancel = true;
-            this.Hide();
+            //e.Cancel = true;
+            //this.Hide();
+            if(t27!=null)
+                t27.IsBackground=true;
+            if(t28!=null)
+                t28.IsBackground = true;
+            if (t29 != null)
+                t29.IsBackground = true;
+            if (t30 != null)
+                t30.IsBackground = true;
         }
 
         bool[] getBinValue(string UintValue)

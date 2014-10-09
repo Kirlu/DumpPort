@@ -13,7 +13,7 @@ namespace ByteConvert
     {
         static void Main(string[] args)
         {
-            UInt32 a = 1879048193;
+            UInt32 a = 0x70000001;
             byte[] bytes = BitConverter.GetBytes(a);
             Console.WriteLine(BitConverter.ToString(bytes));
             Array.Reverse(bytes);
@@ -25,6 +25,9 @@ namespace ByteConvert
                 Console.Write(cccd);
             }
             Console.WriteLine();
+            int bit = 1;
+            Console.WriteLine("bit"+bit+":"+ba[ba.Length-1-bit]);
+            Console.ReadLine();
             UInt32 result = BitConverter.ToUInt32(bytes,0);
             Console.WriteLine(result);
             Console.WriteLine(BitConverter.ToString(BitConverter.GetBytes(result)));

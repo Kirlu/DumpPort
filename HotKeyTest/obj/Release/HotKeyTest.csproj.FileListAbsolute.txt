@@ -8,3 +8,12 @@ D:\job\alonso\DumpPort\HotKeyTest\obj\Release\HotKeyTest.csproj.GenerateResource
 D:\job\alonso\DumpPort\HotKeyTest\obj\Release\HotKeyTest.exe
 D:\job\alonso\DumpPort\HotKeyTest\obj\Release\HotKeyTest.pdb
 D:\job\alonso\DumpPort\HotKeyTest\obj\Release\HotKeyTest.Form1.resources
+C:\Users\waertf\Documents\Job\DumpPort\HotKeyTest\bin\Release\HotKeyTest.exe
+C:\Users\waertf\Documents\Job\DumpPort\HotKeyTest\bin\Release\HotKeyTest.pdb
+C:\Users\waertf\Documents\Job\DumpPort\HotKeyTest\bin\Release\HotkeyLib.pdb
+C:\Users\waertf\Documents\Job\DumpPort\HotKeyTest\obj\Release\HotKeyTest.csprojResolveAssemblyReference.cache
+C:\Users\waertf\Documents\Job\DumpPort\HotKeyTest\obj\Release\HotKeyTest.Form1.resources
+C:\Users\waertf\Documents\Job\DumpPort\HotKeyTest\obj\Release\HotKeyTest.Properties.Resources.resources
+C:\Users\waertf\Documents\Job\DumpPort\HotKeyTest\obj\Release\HotKeyTest.csproj.GenerateResource.Cache
+C:\Users\waertf\Documents\Job\DumpPort\HotKeyTest\obj\Release\HotKeyTest.exe
+C:\Users\waertf\Documents\Job\DumpPort\HotKeyTest\obj\Release\HotKeyTest.pdb

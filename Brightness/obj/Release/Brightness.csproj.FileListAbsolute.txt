@@ -20,3 +20,4 @@ C:\Users\waertf\Documents\Job\DumpPort\Brightness\obj\Release\Brightness.exe
 C:\Users\waertf\Documents\Job\DumpPort\Brightness\bin\Release\Brightness.exe
 C:\Users\waertf\Documents\Job\DumpPort\Brightness\bin\Release\Brightness.pdb
 C:\Users\waertf\Documents\Job\DumpPort\Brightness\obj\Release\Brightness.pdb
+C:\Users\waertf\Documents\Job\DumpPort\Brightness\obj\Release\Brightness.csprojResolveAssemblyReference.cache

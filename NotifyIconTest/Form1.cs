@@ -8,7 +8,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
+//using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Management;
 using NAudio;
@@ -219,7 +219,7 @@ namespace NotifyIconTest
             }
             
             //btnGetValue_Click(this, null);
-            Task.Factory.StartNew(() =>
+            ThreadPool.QueueUserWorkItem(callback =>
             {
                 while (true)
                 {
@@ -233,7 +233,7 @@ namespace NotifyIconTest
                     Thread.Sleep(1);
                 }
             });
-            Task.Factory.StartNew(() =>
+            ThreadPool.QueueUserWorkItem(callback =>
             {
                 while (true)
                 {
@@ -247,7 +247,7 @@ namespace NotifyIconTest
                     Thread.Sleep(1);
                 }
             });
-            Task.Factory.StartNew(() =>
+            ThreadPool.QueueUserWorkItem(callback =>
             {
                 while (true)
                 {
@@ -265,7 +265,7 @@ namespace NotifyIconTest
                     Thread.Sleep(1);
                 }
             });
-            Task.Factory.StartNew(() =>
+            ThreadPool.QueueUserWorkItem(callback =>
             {
                 while (true)
                 {

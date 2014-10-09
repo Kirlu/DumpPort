@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -284,7 +286,297 @@ namespace NotifyIconTest
                 }
             });
         }
+        #region new io library
+        [DllImport("inpout32.dll")]
+        private static extern UInt32 IsInpOutDriverOpen();
+        [DllImport("inpout32.dll")]
+        private static extern void Out32(short PortAddress, short Data);
+        [DllImport("inpout32.dll")]
+        private static extern char Inp32(short PortAddress);
 
+        [DllImport("inpout32.dll")]
+        private static extern void DlPortWritePortUshort(short PortAddress, ushort Data);
+        [DllImport("inpout32.dll")]
+        private static extern ushort DlPortReadPortUshort(short PortAddress);
+
+        [DllImport("inpout32.dll")]
+        private static extern void DlPortWritePortUlong(int PortAddress, uint Data);
+        [DllImport("inpout32.dll")]
+        private static extern uint DlPortReadPortUlong(int PortAddress);
+
+        [DllImport("inpoutx64.dll")]
+        private static extern bool GetPhysLong(ref int PortAddress, ref uint Data);
+        [DllImport("inpoutx64.dll")]
+        private static extern bool SetPhysLong(ref int PortAddress, ref uint Data);
+
+
+        [DllImport("inpoutx64.dll", EntryPoint = "IsInpOutDriverOpen")]
+        private static extern UInt32 IsInpOutDriverOpen_x64();
+        [DllImport("inpoutx64.dll", EntryPoint = "Out32")]
+        private static extern void Out32_x64(short PortAddress, short Data);
+        [DllImport("inpoutx64.dll", EntryPoint = "Inp32")]
+        private static extern char Inp32_x64(short PortAddress);
+
+        [DllImport("inpoutx64.dll", EntryPoint = "DlPortWritePortUshort")]
+        private static extern void DlPortWritePortUshort_x64(short PortAddress, ushort Data);
+        [DllImport("inpoutx64.dll", EntryPoint = "DlPortReadPortUshort")]
+        private static extern ushort DlPortReadPortUshort_x64(short PortAddress);
+
+        [DllImport("inpoutx64.dll", EntryPoint = "DlPortWritePortUlong")]
+        private static extern void DlPortWritePortUlong_x64(int PortAddress, uint Data);
+        [DllImport("inpoutx64.dll", EntryPoint = "DlPortReadPortUlong")]
+        private static extern uint DlPortReadPortUlong_x64(int PortAddress);
+
+        [DllImport("inpoutx64.dll", EntryPoint = "GetPhysLong")]
+        private static extern bool GetPhysLong_x64(ref int PortAddress, ref uint Data);
+        [DllImport("inpoutx64.dll", EntryPoint = "SetPhysLong")]
+        private static extern bool SetPhysLong_x64(ref int PortAddress, ref uint Data);
+
+
+        bool m_bX64 = false;
+        void test()//Form1_Load
+        {
+            try
+            {
+                uint nResult = 0;
+                try
+                {
+                    nResult = IsInpOutDriverOpen();
+                }
+                catch (BadImageFormatException)
+                {
+                    nResult = IsInpOutDriverOpen_x64();
+                    if (nResult != 0)
+                        m_bX64 = true;
+
+                }
+
+                if (nResult == 0)
+                {
+                    /*
+                    lblMessage.Text = "Unable to open InpOut32 driver";
+                    button1.Enabled = false;
+                    button2.Enabled = false;
+                    button3.Enabled = false;
+                    button4.Enabled = false;
+                    button5.Enabled = false;
+                    button6.Enabled = false;
+                    button7.Enabled = false;
+                     * */
+                }
+            }
+            catch (DllNotFoundException ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.ToString());
+                /*
+                lblMessage.Text = "Unable to find InpOut32.dll";
+                button1.Enabled = false;
+                button2.Enabled = false;
+                button3.Enabled = false;
+                button4.Enabled = false;
+                button5.Enabled = false;
+                button6.Enabled = false;
+                button7.Enabled = false;
+                 * */
+            }
+            #region 27bit
+            ThreadPool.QueueUserWorkItem(callback =>
+            {
+                while (true)
+                {
+                    //bit27
+                    try
+                    {
+                        int nPort = int.Parse(keyAdress, System.Globalization.NumberStyles.HexNumber);
+
+                        uint l;
+                        if (m_bX64)
+                            l = DlPortReadPortUlong_x64(nPort);
+                        else
+                            l = DlPortReadPortUlong(nPort);
+
+                        byte[] bytes = BitConverter.GetBytes(l);
+                        //Console.WriteLine(BitConverter.ToString(bytes));
+                        Array.Reverse(bytes);
+                        string result2 = BitConverter.ToString(bytes).Replace("-", "");
+                        //Console.WriteLine(result2);
+                        BitArray ba = ConvertHexToBitArray(result2);
+                        //foreach (var cccd in ba)
+                        {
+                            //Console.Write(cccd);
+                        }
+                        //Console.WriteLine();
+                        int bit = 27;
+                        //Console.WriteLine("bit" + bit + ":" + ba[ba.Length - 1 - bit]);
+                        if (ba[ba.Length - 1 - bit].Equals(false))
+                        {
+                            //MessageBox.Show("Volumn up");
+                            VolumnUp();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("An error occured:\n" + ex.Message);
+                    }
+                    Thread.Sleep(1);
+                }
+            });
+#endregion 27bit
+            #region 28bit
+            ThreadPool.QueueUserWorkItem(callback =>
+            {
+                while (true)
+                {
+                    //bit28
+                    try
+                    {
+                        int nPort = int.Parse(keyAdress, System.Globalization.NumberStyles.HexNumber);
+
+                        uint l;
+                        if (m_bX64)
+                            l = DlPortReadPortUlong_x64(nPort);
+                        else
+                            l = DlPortReadPortUlong(nPort);
+
+                        byte[] bytes = BitConverter.GetBytes(l);
+                        //Console.WriteLine(BitConverter.ToString(bytes));
+                        Array.Reverse(bytes);
+                        string result2 = BitConverter.ToString(bytes).Replace("-", "");
+                        //Console.WriteLine(result2);
+                        BitArray ba = ConvertHexToBitArray(result2);
+                        //foreach (var cccd in ba)
+                        {
+                            //Console.Write(cccd);
+                        }
+                        //Console.WriteLine();
+                        int bit = 28;
+                        //Console.WriteLine("bit" + bit + ":" + ba[ba.Length - 1 - bit]);
+                        if (ba[ba.Length - 1 - bit].Equals(false))
+                        {
+                            //MessageBox.Show("Volumn down");
+                            VolumnDown();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("An error occured:\n" + ex.Message);
+                    }
+                    Thread.Sleep(1);
+                }
+            });
+            #endregion 28bit
+            #region 29bit
+            ThreadPool.QueueUserWorkItem(callback =>
+            {
+                while (true)
+                {
+                    //bit29
+                    try
+                    {
+                        int nPort = int.Parse(keyAdress, System.Globalization.NumberStyles.HexNumber);
+
+                        uint l;
+                        if (m_bX64)
+                            l = DlPortReadPortUlong_x64(nPort);
+                        else
+                            l = DlPortReadPortUlong(nPort);
+
+                        byte[] bytes = BitConverter.GetBytes(l);
+                        //Console.WriteLine(BitConverter.ToString(bytes));
+                        Array.Reverse(bytes);
+                        string result2 = BitConverter.ToString(bytes).Replace("-", "");
+                        //Console.WriteLine(result2);
+                        BitArray ba = ConvertHexToBitArray(result2);
+                        //foreach (var cccd in ba)
+                        {
+                            //Console.Write(cccd);
+                        }
+                        //Console.WriteLine();
+                        int bit = 29;
+                        //Console.WriteLine("bit" + bit + ":" + ba[ba.Length - 1 - bit]);
+                        if (ba[ba.Length - 1 - bit].Equals(false))
+                        {
+                            //MessageBox.Show("iBrightness up");
+                            if (iBrightness < 100)
+                            {
+                                iBrightness += 1;
+                                SetBrightness((byte)iBrightness);
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("An error occured:\n" + ex.Message);
+                    }
+                    Thread.Sleep(1);
+                }
+            });
+            #endregion 29bit
+            #region 30bit
+            ThreadPool.QueueUserWorkItem(callback =>
+            {
+                while (true)
+                {
+                    //bit30
+                    try
+                    {
+                        int nPort = int.Parse(keyAdress, System.Globalization.NumberStyles.HexNumber);
+
+                        uint l;
+                        if (m_bX64)
+                            l = DlPortReadPortUlong_x64(nPort);
+                        else
+                            l = DlPortReadPortUlong(nPort);
+
+                        byte[] bytes = BitConverter.GetBytes(l);
+                        //Console.WriteLine(BitConverter.ToString(bytes));
+                        Array.Reverse(bytes);
+                        string result2 = BitConverter.ToString(bytes).Replace("-", "");
+                        //Console.WriteLine(result2);
+                        BitArray ba = ConvertHexToBitArray(result2);
+                        //foreach (var cccd in ba)
+                        {
+                            //Console.Write(cccd);
+                        }
+                        //Console.WriteLine();
+                        int bit = 30;
+                        //Console.WriteLine("bit" + bit + ":" + ba[ba.Length - 1 - bit]);
+                        if (ba[ba.Length - 1 - bit].Equals(false))
+                        {
+                            //MessageBox.Show("iBrightness down");
+                            if (iBrightness > 0)
+                            {
+                                iBrightness -= 1;
+                                SetBrightness((byte)iBrightness);
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("An error occured:\n" + ex.Message);
+                    }
+                    Thread.Sleep(1);
+                }
+            });
+            #endregion 30bit
+        }
+        static BitArray ConvertHexToBitArray(string hexData)
+        {
+            if (hexData == null)
+                return null; // or do something else, throw, ...
+
+            BitArray ba = new BitArray(4 * hexData.Length);
+            for (int i = 0; i < hexData.Length; i++)
+            {
+                byte b = byte.Parse(hexData[i].ToString(), NumberStyles.HexNumber);
+                for (int j = 0; j < 4; j++)
+                {
+                    ba.Set(i * 4 + j, (b & (1 << (3 - j))) != 0);
+                }
+            }
+            return ba;
+        }
+        #endregion new io library
         private void VolumnDown()
         {
             try

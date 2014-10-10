@@ -38,16 +38,16 @@
             // brightLabel
             // 
             this.brightLabel.AutoSize = true;
-            this.brightLabel.Location = new System.Drawing.Point(13, 13);
+            this.brightLabel.Location = new System.Drawing.Point(13, 12);
             this.brightLabel.Name = "brightLabel";
-            this.brightLabel.Size = new System.Drawing.Size(56, 13);
+            this.brightLabel.Size = new System.Drawing.Size(54, 12);
             this.brightLabel.TabIndex = 0;
             this.brightLabel.Text = "Brightness";
             // 
             // trackBar1
             // 
-            this.trackBar1.Location = new System.Drawing.Point(76, 13);
-            this.trackBar1.Maximum = 100;
+            this.trackBar1.Location = new System.Drawing.Point(76, 12);
+            this.trackBar1.Maximum = 255;
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Size = new System.Drawing.Size(104, 45);
             this.trackBar1.TabIndex = 1;
@@ -56,26 +56,26 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(187, 13);
+            this.label1.Location = new System.Drawing.Point(187, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(36, 13);
+            this.label1.Size = new System.Drawing.Size(33, 12);
             this.label1.TabIndex = 2;
             this.label1.Text = "value:";
             // 
             // brightValue
             // 
             this.brightValue.AutoSize = true;
-            this.brightValue.Location = new System.Drawing.Point(230, 13);
+            this.brightValue.Location = new System.Drawing.Point(230, 12);
             this.brightValue.Name = "brightValue";
-            this.brightValue.Size = new System.Drawing.Size(25, 13);
+            this.brightValue.Size = new System.Drawing.Size(23, 12);
             this.brightValue.TabIndex = 3;
             this.brightValue.Text = "100";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 50);
+            this.ClientSize = new System.Drawing.Size(284, 46);
             this.Controls.Add(this.brightValue);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.trackBar1);

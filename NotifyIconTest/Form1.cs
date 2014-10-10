@@ -45,31 +45,41 @@ namespace NotifyIconTest
         private Monitor _currentMonitor;
         private readonly MonitorCollection _monitorCollection = new MonitorCollection();
         byte[] bLevels;
-        int? iBrightness=null;
+        int? iBrightness=50;
+        string OSName = null;
         public Form1()
         {
             InitializeComponent();
+            OSName = getOSName();
+            if (OSName.Contains("Windows 7"))
+            {
+                OSName = "win7";
+            }
+            else
+                OSName = "win8";
             this.FormClosing += Form1_FormClosing;
             notifyIcon1.MouseDoubleClick += notifyIcon1_MouseDoubleClick;
             this.WindowState = FormWindowState.Minimized;
             this.ShowInTaskbar = false;
-
-            var @delegate = new NativeMethods.MonitorEnumDelegate(MonitorEnum);
-            NativeMethods.EnumDisplayMonitors(IntPtr.Zero, IntPtr.Zero, @delegate, IntPtr.Zero);
-            bLevels = GetBrightnessLevels(); //get the level array for this system
-            if (bLevels.Count() == 0) //"WmiMonitorBrightness" is not supported by the system
+            if(OSName.Equals("win8"))
             {
-                Application.Exit();
-            }
-            else
-            {
-                /*
-                trackBar1.TickFrequency = bLevels.Count(); //adjust the trackbar ticks according the number of possible brightness levels
-                trackBar1.Maximum = bLevels.Count() - 1;
-                trackBar1.Update();
-                trackBar1.Refresh();
-                */
-                check_brightness();
+                var @delegate = new NativeMethods.MonitorEnumDelegate(MonitorEnum);
+                NativeMethods.EnumDisplayMonitors(IntPtr.Zero, IntPtr.Zero, @delegate, IntPtr.Zero);
+                bLevels = GetBrightnessLevels(); //get the level array for this system
+                if (bLevels.Count() == 0) //"WmiMonitorBrightness" is not supported by the system
+                {
+                    Application.Exit();
+                }
+                else
+                {
+                    /*
+                    trackBar1.TickFrequency = bLevels.Count(); //adjust the trackbar ticks according the number of possible brightness levels
+                    trackBar1.Maximum = bLevels.Count() - 1;
+                    trackBar1.Update();
+                    trackBar1.Refresh();
+                    */
+                    check_brightness();
+                }
             }
         }
 
@@ -503,7 +513,16 @@ namespace NotifyIconTest
                             if (iBrightness < 100)
                             {
                                 iBrightness += 1;
-                                SetBrightness((byte)iBrightness);
+                                //SetBrightness((byte)iBrightness);
+                                switch (OSName)
+                                {
+                                    case "win7":
+                                        Brightness.SetBrightness((short)iBrightness);
+                                        break;
+                                    case "win8":
+                                        SetBrightness((byte)iBrightness);
+                                        break;
+                                }
                             }
                         }
                     }
@@ -550,7 +569,16 @@ namespace NotifyIconTest
                             if (iBrightness > 0)
                             {
                                 iBrightness -= 1;
-                                SetBrightness((byte)iBrightness);
+                                //SetBrightness((byte)iBrightness);
+                                switch (OSName)
+                                {
+                                    case "win7":
+                                        Brightness.SetBrightness((short)iBrightness);
+                                        break;
+                                    case "win8":
+                                        SetBrightness((byte)iBrightness);
+                                        break;
+                                }
                             }
                         }
                     }
@@ -566,6 +594,12 @@ namespace NotifyIconTest
             t28.Start();
             t29.Start();
             t30.Start();
+        }
+        string getOSName()
+        {
+            var name = (from x in new ManagementObjectSearcher("SELECT * FROM Win32_OperatingSystem").Get().OfType<ManagementObject>()
+                        select x.GetPropertyValue("Caption")).FirstOrDefault();
+            return name != null ? name.ToString() : "Unknown";
         }
         static BitArray ConvertHexToBitArray(string hexData)
         {
@@ -737,6 +771,66 @@ namespace NotifyIconTest
             {
                 return "fail";
             }
+        }
+    }
+
+    public static class Brightness
+    {
+        [DllImport("gdi32.dll")]
+        private unsafe static extern bool SetDeviceGammaRamp(Int32 hdc, void* ramp);
+
+        private static bool initialized = false;
+        private static Int32 hdc;
+
+
+        private static void InitializeClass()
+        {
+            if (initialized)
+                return;
+
+            //Get the hardware device context of the screen, we can do
+            //this by getting the graphics object of null (IntPtr.Zero)
+            //then getting the HDC and converting that to an Int32.
+            hdc = Graphics.FromHwnd(IntPtr.Zero).GetHdc().ToInt32();
+
+            //initialized = true;
+        }
+
+        public static unsafe bool SetBrightness(short brightness)
+        {
+            InitializeClass();
+
+            if (brightness > 255)
+                brightness = 255;
+
+            if (brightness < 0)
+                brightness = 0;
+
+            short* gArray = stackalloc short[3 * 256];
+            short* idx = gArray;
+
+            for (int j = 0; j < 3; j++)
+            {
+                for (int i = 0; i < 256; i++)
+                {
+                    int arrayVal = i * (brightness + 128);
+
+                    if (arrayVal > 65535)
+                        arrayVal = 65535;
+
+                    *idx = (short)arrayVal;
+                    idx++;
+                }
+            }
+
+            //For some reason, this always returns false?
+            bool retVal = SetDeviceGammaRamp(hdc, gArray);
+
+            //Memory allocated through stackalloc is automatically free'd
+            //by the CLR.
+
+            return retVal;
+
         }
     }
 }

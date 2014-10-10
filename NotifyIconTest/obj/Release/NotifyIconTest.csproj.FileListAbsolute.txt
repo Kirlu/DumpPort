@@ -19,4 +19,3 @@ C:\Users\waertf\Documents\Job\DumpPort\NotifyIconTest\obj\Release\NotifyIconTest
 C:\Users\waertf\Documents\Job\DumpPort\NotifyIconTest\obj\Release\NotifyIconTest.csproj.GenerateResource.Cache
 C:\Users\waertf\Documents\Job\DumpPort\NotifyIconTest\obj\Release\NotifyIconTest.exe
 C:\Users\waertf\Documents\Job\DumpPort\NotifyIconTest\obj\Release\NotifyIconTest.pdb
-C:\Users\waertf\Documents\Job\DumpPort\NotifyIconTest\obj\Release\NotifyIconTest.csprojResolveAssemblyReference.cache

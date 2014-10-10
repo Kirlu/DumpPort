@@ -18,6 +18,8 @@ namespace Brightness
         public Form1()
         {
             InitializeComponent();
+            MessageBox.Show(getOSName());
+            //MessageBox.Show(Environment.OSVersion.ToString());
             trackBar1.ValueChanged += trackBar1_ValueChanged;
             var @delegate = new NativeMethods.MonitorEnumDelegate(MonitorEnum);
             NativeMethods.EnumDisplayMonitors(IntPtr.Zero, IntPtr.Zero, @delegate, IntPtr.Zero);
@@ -35,7 +37,12 @@ namespace Brightness
                 check_brightness(); 
             }
         }
-
+        string getOSName()
+        {
+            var name = (from x in new ManagementObjectSearcher("SELECT * FROM Win32_OperatingSystem").Get().OfType<ManagementObject>()
+                        select x.GetPropertyValue("Caption")).FirstOrDefault();
+            return name != null ? name.ToString() : "Unknown";
+        }
         void trackBar1_ValueChanged(object sender, EventArgs e)
         {
             brightValue.Text = trackBar1.Value.ToString();

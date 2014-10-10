@@ -510,16 +510,20 @@ namespace NotifyIconTest
                         if (ba[ba.Length - 1 - bit].Equals(false))
                         {
                             //MessageBox.Show("iBrightness up");
-                            if (iBrightness < 100)
+                            //if (iBrightness < 100)
                             {
                                 iBrightness += 1;
                                 //SetBrightness((byte)iBrightness);
                                 switch (OSName)
                                 {
                                     case "win7":
+                                        if (iBrightness > 255)
+                                            iBrightness = 255;
                                         Brightness.SetBrightness((short)iBrightness);
                                         break;
                                     case "win8":
+                                        if (iBrightness > 100)
+                                            iBrightness = 100;
                                         SetBrightness((byte)iBrightness);
                                         break;
                                 }

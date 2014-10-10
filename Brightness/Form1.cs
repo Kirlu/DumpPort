@@ -21,20 +21,20 @@ namespace Brightness
             MessageBox.Show(getOSName());
             //MessageBox.Show(Environment.OSVersion.ToString());
             trackBar1.ValueChanged += trackBar1_ValueChanged;
-            var @delegate = new NativeMethods.MonitorEnumDelegate(MonitorEnum);
-            NativeMethods.EnumDisplayMonitors(IntPtr.Zero, IntPtr.Zero, @delegate, IntPtr.Zero);
-            bLevels = GetBrightnessLevels(); //get the level array for this system
-            if (bLevels.Count() == 0) //"WmiMonitorBrightness" is not supported by the system
+            //var @delegate = new NativeMethods.MonitorEnumDelegate(MonitorEnum);
+            //NativeMethods.EnumDisplayMonitors(IntPtr.Zero, IntPtr.Zero, @delegate, IntPtr.Zero);
+            //bLevels = GetBrightnessLevels(); //get the level array for this system
+            //if (bLevels.Count() == 0) //"WmiMonitorBrightness" is not supported by the system
             {
-                Application.Exit();
+                //Application.Exit();
             }
-            else
+           // else
             {
-                trackBar1.TickFrequency = bLevels.Count(); //adjust the trackbar ticks according the number of possible brightness levels
-                trackBar1.Maximum = bLevels.Count() - 1;
-                trackBar1.Update();
-                trackBar1.Refresh();
-                check_brightness(); 
+                //trackBar1.TickFrequency = bLevels.Count(); //adjust the trackbar ticks according the number of possible brightness levels
+                //trackBar1.Maximum = bLevels.Count() - 1;
+                //trackBar1.Update();
+                //trackBar1.Refresh();
+                //check_brightness(); 
             }
         }
         string getOSName()
@@ -177,7 +177,7 @@ namespace Brightness
             //then getting the HDC and converting that to an Int32.
             hdc = Graphics.FromHwnd(IntPtr.Zero).GetHdc().ToInt32();
 
-            initialized = true;
+            //initialized = true;
         }
 
         public static unsafe bool SetBrightness(short brightness)

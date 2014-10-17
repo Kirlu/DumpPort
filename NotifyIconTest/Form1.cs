@@ -47,6 +47,15 @@ namespace NotifyIconTest
         byte[] bLevels;
         int? iBrightness=50;
         string OSName = null;
+        enum ABI_function
+        {
+            AudioUp,
+            AudioDown,
+            BrightnessUp,
+            BrightnessDown,
+            OpenIE
+        };
+        ABI_function bit27, bit28, bit29, bit30;
         public Form1()
         {
             InitializeComponent();

@@ -1,0 +1,8 @@
+C:\Users\waertf\Documents\Job\DumpPort\audioBirghtnessIe\bin\Release\audioBirghtnessIe.exe
+C:\Users\waertf\Documents\Job\DumpPort\audioBirghtnessIe\bin\Release\audioBirghtnessIe.pdb
+C:\Users\waertf\Documents\Job\DumpPort\audioBirghtnessIe\obj\Release\audioBirghtnessIe.csprojResolveAssemblyReference.cache
+C:\Users\waertf\Documents\Job\DumpPort\audioBirghtnessIe\obj\Release\audioBirghtnessIe.Form1.resources
+C:\Users\waertf\Documents\Job\DumpPort\audioBirghtnessIe\obj\Release\audioBirghtnessIe.Properties.Resources.resources
+C:\Users\waertf\Documents\Job\DumpPort\audioBirghtnessIe\obj\Release\audioBirghtnessIe.csproj.GenerateResource.Cache
+C:\Users\waertf\Documents\Job\DumpPort\audioBirghtnessIe\obj\Release\audioBirghtnessIe.exe
+C:\Users\waertf\Documents\Job\DumpPort\audioBirghtnessIe\obj\Release\audioBirghtnessIe.pdb

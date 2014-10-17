@@ -1,0 +1,8 @@
+c:\users\waertf\documents\visual studio 2012\Projects\audioBirghtnessIe\audioBirghtnessIe\bin\Debug\audioBirghtnessIe.exe
+c:\users\waertf\documents\visual studio 2012\Projects\audioBirghtnessIe\audioBirghtnessIe\bin\Debug\audioBirghtnessIe.pdb
+c:\users\waertf\documents\visual studio 2012\Projects\audioBirghtnessIe\audioBirghtnessIe\obj\Debug\audioBirghtnessIe.csprojResolveAssemblyReference.cache
+c:\users\waertf\documents\visual studio 2012\Projects\audioBirghtnessIe\audioBirghtnessIe\obj\Debug\audioBirghtnessIe.Form1.resources
+c:\users\waertf\documents\visual studio 2012\Projects\audioBirghtnessIe\audioBirghtnessIe\obj\Debug\audioBirghtnessIe.Properties.Resources.resources
+c:\users\waertf\documents\visual studio 2012\Projects\audioBirghtnessIe\audioBirghtnessIe\obj\Debug\audioBirghtnessIe.csproj.GenerateResource.Cache
+c:\users\waertf\documents\visual studio 2012\Projects\audioBirghtnessIe\audioBirghtnessIe\obj\Debug\audioBirghtnessIe.exe
+c:\users\waertf\documents\visual studio 2012\Projects\audioBirghtnessIe\audioBirghtnessIe\obj\Debug\audioBirghtnessIe.pdb

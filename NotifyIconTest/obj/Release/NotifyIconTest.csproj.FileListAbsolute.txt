@@ -8,7 +8,6 @@ D:\job\alonso\DumpPort\NotifyIconTest\obj\Release\NotifyIconTest.pdb
 D:\job\alonso\DumpPort\NotifyIconTest\bin\Release\NotifyIconTest.exe.config
 D:\job\alonso\DumpPort\NotifyIconTest\bin\Release\NAudio.dll
 D:\job\alonso\DumpPort\NotifyIconTest\bin\Release\NAudio.WindowsMediaFormat.dll
-D:\job\alonso\DumpPort\NotifyIconTest\bin\Release\NAudio.xml
 C:\Users\waertf\Documents\Job\DumpPort\NotifyIconTest\bin\Release\NotifyIconTest.exe.config
 C:\Users\waertf\Documents\Job\DumpPort\NotifyIconTest\bin\Release\NotifyIconTest.exe
 C:\Users\waertf\Documents\Job\DumpPort\NotifyIconTest\bin\Release\NotifyIconTest.pdb
@@ -19,3 +18,4 @@ C:\Users\waertf\Documents\Job\DumpPort\NotifyIconTest\obj\Release\NotifyIconTest
 C:\Users\waertf\Documents\Job\DumpPort\NotifyIconTest\obj\Release\NotifyIconTest.csproj.GenerateResource.Cache
 C:\Users\waertf\Documents\Job\DumpPort\NotifyIconTest\obj\Release\NotifyIconTest.exe
 C:\Users\waertf\Documents\Job\DumpPort\NotifyIconTest\obj\Release\NotifyIconTest.pdb
+D:\job\alonso\DumpPort\NotifyIconTest\obj\Release\NotifyIconTest.csprojResolveAssemblyReference.cache

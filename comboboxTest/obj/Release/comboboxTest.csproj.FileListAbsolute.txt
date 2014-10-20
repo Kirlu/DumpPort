@@ -1,0 +1,8 @@
+D:\job\alonso\DumpPort\comboboxTest\bin\Release\comboboxTest.exe
+D:\job\alonso\DumpPort\comboboxTest\bin\Release\comboboxTest.pdb
+D:\job\alonso\DumpPort\comboboxTest\obj\Release\comboboxTest.csprojResolveAssemblyReference.cache
+D:\job\alonso\DumpPort\comboboxTest\obj\Release\comboboxTest.Form1.resources
+D:\job\alonso\DumpPort\comboboxTest\obj\Release\comboboxTest.Properties.Resources.resources
+D:\job\alonso\DumpPort\comboboxTest\obj\Release\comboboxTest.csproj.GenerateResource.Cache
+D:\job\alonso\DumpPort\comboboxTest\obj\Release\comboboxTest.exe
+D:\job\alonso\DumpPort\comboboxTest\obj\Release\comboboxTest.pdb

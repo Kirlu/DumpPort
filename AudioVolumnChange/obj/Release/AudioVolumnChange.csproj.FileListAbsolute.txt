@@ -1,6 +1,5 @@
 D:\job\alonso\DumpPort\AudioVolumnChange\bin\Release\AudioVolumnChange.exe
 D:\job\alonso\DumpPort\AudioVolumnChange\bin\Release\AudioVolumnChange.pdb
-D:\job\alonso\DumpPort\AudioVolumnChange\bin\Release\CoreAudioApi.dll
 D:\job\alonso\DumpPort\AudioVolumnChange\bin\Release\NAudio.dll
 D:\job\alonso\DumpPort\AudioVolumnChange\bin\Release\NAudio.WindowsMediaFormat.dll
 D:\job\alonso\DumpPort\AudioVolumnChange\bin\Release\NAudio.xml

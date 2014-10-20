@@ -6,3 +6,11 @@ C:\Users\waertf\Documents\Job\DumpPort\audioBirghtnessIe\obj\Release\audioBirght
 C:\Users\waertf\Documents\Job\DumpPort\audioBirghtnessIe\obj\Release\audioBirghtnessIe.csproj.GenerateResource.Cache
 C:\Users\waertf\Documents\Job\DumpPort\audioBirghtnessIe\obj\Release\audioBirghtnessIe.exe
 C:\Users\waertf\Documents\Job\DumpPort\audioBirghtnessIe\obj\Release\audioBirghtnessIe.pdb
+D:\job\alonso\DumpPort\audioBirghtnessIe\bin\Release\audioBirghtnessIe.exe
+D:\job\alonso\DumpPort\audioBirghtnessIe\bin\Release\audioBirghtnessIe.pdb
+D:\job\alonso\DumpPort\audioBirghtnessIe\obj\Release\audioBirghtnessIe.csprojResolveAssemblyReference.cache
+D:\job\alonso\DumpPort\audioBirghtnessIe\obj\Release\audioBirghtnessIe.Form1.resources
+D:\job\alonso\DumpPort\audioBirghtnessIe\obj\Release\audioBirghtnessIe.Properties.Resources.resources
+D:\job\alonso\DumpPort\audioBirghtnessIe\obj\Release\audioBirghtnessIe.csproj.GenerateResource.Cache
+D:\job\alonso\DumpPort\audioBirghtnessIe\obj\Release\audioBirghtnessIe.exe
+D:\job\alonso\DumpPort\audioBirghtnessIe\obj\Release\audioBirghtnessIe.pdb

@@ -6,3 +6,12 @@ C:\Users\waertf\Documents\Job\DumpPort\DumpPort\obj\Release\DumpPort.Properties.
 C:\Users\waertf\Documents\Job\DumpPort\DumpPort\obj\Release\DumpPort.csproj.GenerateResource.Cache
 C:\Users\waertf\Documents\Job\DumpPort\DumpPort\obj\Release\DumpPort.exe
 C:\Users\waertf\Documents\Job\DumpPort\DumpPort\obj\Release\DumpPort.pdb
+D:\job\alonso\DumpPort\DumpPort\bin\Release\DumpPort.exe.config
+D:\job\alonso\DumpPort\DumpPort\bin\Release\DumpPort.exe
+D:\job\alonso\DumpPort\DumpPort\bin\Release\DumpPort.pdb
+D:\job\alonso\DumpPort\DumpPort\obj\Release\DumpPort.csprojResolveAssemblyReference.cache
+D:\job\alonso\DumpPort\DumpPort\obj\Release\DumpPort.Form1.resources
+D:\job\alonso\DumpPort\DumpPort\obj\Release\DumpPort.Properties.Resources.resources
+D:\job\alonso\DumpPort\DumpPort\obj\Release\DumpPort.csproj.GenerateResource.Cache
+D:\job\alonso\DumpPort\DumpPort\obj\Release\DumpPort.exe
+D:\job\alonso\DumpPort\DumpPort\obj\Release\DumpPort.pdb

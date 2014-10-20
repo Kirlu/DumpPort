@@ -79,6 +79,7 @@ namespace comboboxTest
             funcList.Add("Brightness Up");
             funcList.Add("Brightness Down");
             funcList.Add("Open IE");
+            funcList.Add("");
             comboBox1.Enabled = true;
             comboBox2.Enabled = false;
             comboBox3.Enabled = false;

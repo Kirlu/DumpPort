@@ -74,11 +74,11 @@ namespace comboboxTest
         private void button1_Click(object sender, EventArgs e)
         {
             funcList.Clear();
-            funcList.Add("Audio Up");
-            funcList.Add("Audio Down");
-            funcList.Add("Brightness Up");
-            funcList.Add("Brightness Down");
-            funcList.Add("Open IE");
+            funcList.Add("Audio_Up");
+            funcList.Add("Audio_Down");
+            funcList.Add("Brightness_Up");
+            funcList.Add("Brightness_Down");
+            funcList.Add("Open_IE");
             funcList.Add("");
             comboBox1.Enabled = true;
             comboBox2.Enabled = false;
